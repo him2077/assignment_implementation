@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 export default class Favorites extends Component{
-  Render(){
+  render(){
     return (
       <div>
         <h1>Favorites</h1>        

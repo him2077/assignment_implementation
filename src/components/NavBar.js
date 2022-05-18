@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Col, Row} from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
 import Notification from './Notification';
+import Favorites from './Favorites';
 import Cart from './Cart';
 
 const bg = {
@@ -39,11 +40,11 @@ export default class NavBar extends Component{
   
                   <Col xs={15}>
                     <Nav className="nav" style={{ maxHeight: '100px' }} id="navbar">
-                      <Nav.Link as {Link} to = {"/Login"}>Login</Nav.Link>
-                      <Nav.Link as {Link} to = {"/Register"}>Register</Nav.Link>
-                      <Nav.Link as {Link} to = {"/Notification"}>Notification</Nav.Link> 
-                      <Nav.Link as {Link} to = {"/Favorites"}>Favorites</Nav.Link>
-                      <Nav.Link as {Link} to = {"/Cart"}>Cart</Nav.Link>  
+                      <Nav.Link as={Link} to="/Login">Login</Nav.Link>
+                      <Nav.Link as={Link} to="/Register">Register</Nav.Link>
+                      <Nav.Link as={Link} to="/Notification">Notification</Nav.Link> 
+                      <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link>
+                      <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>  
                     </Nav>    
                   </Col>  
                 </Row>
@@ -78,27 +79,15 @@ export default class NavBar extends Component{
         </div>
 
         
-        <div>
-          <Switch>          
-            <Route path="/">
-              <Home />
-            </Route>
-            <Route path="/Login">
-              <Login />
-            </Route>
-            <Route path="/Register">
-              <Register />
-            </Route>
-            <Route path="/Notification">
-              <Notification />
-            </Route>
-            <Route path="/Favorites">
-              <Favorites />
-            </Route>
-            <Route path="/Cart">
-              <Cart />
-            </Route>
-          </Switch>
+        <div>        
+          <Routes>
+            <Route path="/" element={ <Home />}/>
+            <Route path="/Login" element={<Login />}/>
+            <Route path="/Register" element={<Register />}/>
+            <Route path="/Notification" element={<Notification />}/>
+            <Route path="/Favorites" element={<Favorites />}/>
+            <Route path="/Cart" element={<Cart />}/>
+          </Routes>  
         </div>
       </Router>
     )

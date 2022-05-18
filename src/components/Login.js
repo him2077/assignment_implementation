@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 export default class Login extends Component{
-  Render(){
+  render(){
     return (
       <div>
         <h1>Login</h1>        

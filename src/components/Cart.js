@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 
 export default class Cart extends Component{
-  Render(){
+  render(){
     return (
       <div>
         <h1>Cart</h1>        

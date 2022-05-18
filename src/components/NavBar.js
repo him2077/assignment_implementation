@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Col, Row} from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
-import Home from './Home';
-import Login from './Login';
-import Register from './Register';
-import Notification from './Notification';
-import Favorites from './Favorites';
-import Cart from './Cart';
+import Home from "../Page/Home";
+import Login from "../Page/Login";
+import Register from "../Page/Register";
+import Notification from "../Page/Notification";
+import Favorites from "../Page/Favorites";
+import Cart from "../Page/Cart";
+import './NavTabs.css';
 
 const bg = {
   backgroundColor: 'Pink'
@@ -22,14 +23,14 @@ export default class NavBar extends Component{
         <div>
           <Navbar collapseOnSelect style={bg} variant="light" expand="lg">
             <Container fluid>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand as={Link} to="/">
                 Bobodave
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="navbar" />
               <Navbar.Collapse id="navbar" className="justify-content-end">
                 
-                <Row className="justify-content-flex-end">                 
-                  <Col xs={8}></Col>      
+                <Row>                 
+                  <Col xs={10}></Col>      
                   
                   <Col xs={2} >
                     <Navbar.Text>
@@ -38,13 +39,13 @@ export default class NavBar extends Component{
                     </Navbar.Text>
                   </Col>
   
-                  <Col xs={15}>
-                    <Nav className="nav" style={{ maxHeight: '100px' }} id="navbar">
-                      <Nav.Link as={Link} to="/Login">Login</Nav.Link>
-                      <Nav.Link as={Link} to="/Register">Register</Nav.Link>
-                      <Nav.Link as={Link} to="/Notification">Notification</Nav.Link> 
-                      <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link>
-                      <Nav.Link as={Link} to="/Cart">Cart</Nav.Link>  
+                  <Col xs={12}>
+                    <Nav variant="tabs" className="justify-content-end" style={{ maxHeight: '100px' }} id="navbar">
+                      <Nav.Item> <Nav.Link as={Link} to="/Login">Login</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Register">Register</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Notification">Notification</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Cart">Cart</Nav.Link> </Nav.Item>
                     </Nav>    
                   </Col>  
                 </Row>

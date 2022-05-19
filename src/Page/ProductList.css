@@ -1,0 +1,81 @@
+
+.category{
+    position: absolute;
+    left: 0px;
+    width: 200px;
+
+    text-align: right;
+}
+.productList {
+    position: absolute;
+    left: 0px;
+    width: 200px;
+    text-align: left;
+}
+.productListItem {
+    justify-content: left !important;
+}
+.searchBar{
+    margin-left: 20%;
+}
+.productListPage{
+    width: 100%;
+}
+
+.gridCard {
+    background-color: white;
+    border-radius: 12px 12px 12px 12px; 
+    overflow: hidden;
+    height: 300px;
+    max-height: 50vh;
+    -webkit-box-shadow: 0px 12px 18px -6px rgba(0,0,0,0,3);
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0,3);
+    margin: 15px;
+}
+.ListCard {
+    flex-direction: row;
+    background-color: white;
+    border-radius: 12px 12px 12px 12px; 
+    overflow: hidden;
+    max-height: 25vh;
+    -webkit-box-shadow: 0px 12px 18px -6px rgba(0,0,0,0,3);
+    box-shadow: 0px 12px 18px -6px rgba(0,0,0,0,3);
+    margin: 15px;
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+}
+.list > div{
+    flex-basis: 100%;
+}
+
+.grid > div{
+    flex-basis: calc(20%);
+}
+
+.price{
+    text-align: right;
+
+    padding-top: 5px;
+}
+
+.grid > img{
+    justify-content: center;
+    max-height: 50%!important;  
+    height: auto ;
+}
+
+.listImg{
+    width: 15%;
+    height: auto ;
+}
+
+.showcase {
+    justify-content: right;
+}

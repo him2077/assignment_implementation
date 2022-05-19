@@ -1,19 +1,31 @@
 import React, {Component} from 'react';
-import {Navbar, Nav, NavDropdown, Form, FormControl, Button, Container, Col, Row} from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
+import {Navbar, Nav, Container, Col, Row} from 'react-bootstrap';
+import { BrowserRouter as Router, Route, Routes, Link, useLocation} from "react-router-dom";
 import Home from "../Page/Home";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
 import Notification from "../Page/Notification";
 import Favorites from "../Page/Favorites";
 import Cart from "../Page/Cart";
+import ProductList from "../Page/ProductList"
+import ProductGrid from "../Page/ProductGrid"
 import './NavTabs.css';
+import SearchBar from './SearchBar';
 
 const bg = {
-  backgroundColor: 'Pink'
+  backgroundColor: 'Pink',
 }
-const bg2 = {
-  backgroundColor: '#FB7373'
+
+function CheckOnProduct(){
+  let location = useLocation();
+  if(location.pathname === "/ProductList" || location.pathname === "/ProductGrid")
+  {
+    return
+  }
+  else{
+    return <SearchBar />
+  }
+              
 }
 
 export default class NavBar extends Component{
@@ -23,7 +35,7 @@ export default class NavBar extends Component{
         <div>
           <Navbar collapseOnSelect style={bg} variant="light" expand="lg">
             <Container fluid>
-              <Navbar.Brand as={Link} to="/">
+              <Navbar.Brand style={{fontSize: 55, fontFamily: 'Jacques Francois'}} as={Link} to="/">
                 Bobodave
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="navbar" />
@@ -41,11 +53,11 @@ export default class NavBar extends Component{
   
                   <Col xs={12}>
                     <Nav variant="tabs" className="justify-content-end" style={{ maxHeight: '100px' }} id="navbar">
-                      <Nav.Item> <Nav.Link as={Link} to="/Login">Login</Nav.Link> </Nav.Item>
-                      <Nav.Item> <Nav.Link as={Link} to="/Register">Register</Nav.Link> </Nav.Item>
-                      <Nav.Item> <Nav.Link as={Link} to="/Notification">Notification</Nav.Link> </Nav.Item>
-                      <Nav.Item> <Nav.Link as={Link} to="/Favorites">Favorites</Nav.Link> </Nav.Item>
-                      <Nav.Item> <Nav.Link as={Link} to="/Cart">Cart</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Login"><span class="material-symbols-outlined"> login </span> Login</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Register"><span class="material-symbols-outlined">app_registration</span>Register</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Notification"><span class="material-symbols-outlined">notifications</span>Notification</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Favorites"><span class="material-symbols-outlined">favorite</span>Favorites</Nav.Link> </Nav.Item>
+                      <Nav.Item> <Nav.Link as={Link} to="/Cart"><span class="material-symbols-outlined">shopping_cart</span>Cart</Nav.Link> </Nav.Item>
                     </Nav>    
                   </Col>  
                 </Row>
@@ -53,30 +65,8 @@ export default class NavBar extends Component{
               </Navbar.Collapse>
             </Container>
           </Navbar>
+          <CheckOnProduct />
           
-          <Navbar style={bg2} expand="lg">
-            <Container fluid >
-              <Navbar.Toggle aria-controls="navbarScroll" />
-              <Navbar.Collapse id="navbarScroll">
-                
-                <NavDropdown title="Category" style={bg} id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
-                </NavDropdown>
-    
-                <Form className="d-flex">
-                  <FormControl type="search" placeholder="Search"
-                    className="navSearch" aria-label="Search" />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
-  
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
         </div>
 
         
@@ -88,6 +78,8 @@ export default class NavBar extends Component{
             <Route path="/Notification" element={<Notification />}/>
             <Route path="/Favorites" element={<Favorites />}/>
             <Route path="/Cart" element={<Cart />}/>
+            <Route path="/ProductList" element={<ProductList />}/>
+            <Route path="/ProductGrid" element={<ProductGrid />}/>
           </Routes>  
         </div>
       </Router>

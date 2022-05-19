@@ -22,7 +22,7 @@
     width: 100%;
 }
 
-.gridCard {
+.productGridCard {
     background-color: white;
     border-radius: 12px 12px 12px 12px; 
     overflow: hidden;
@@ -42,7 +42,7 @@
     box-shadow: 0px 12px 18px -6px rgba(0,0,0,0,3);
     margin: 15px;
 }
-.grid{
+.productGrid{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -55,7 +55,7 @@
     flex-basis: 100%;
 }
 
-.grid > div{
+.productGrid > div{
     flex-basis: calc(20%);
 }
 
@@ -65,7 +65,7 @@
     padding-top: 5px;
 }
 
-.grid > img{
+.productGrid > img{
     justify-content: center;
     max-height: 50%!important;  
     height: auto ;

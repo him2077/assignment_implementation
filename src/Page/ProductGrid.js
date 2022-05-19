@@ -21,7 +21,7 @@ function Grid(){
     ] ;
     const renderGridCard = (card, index) =>{
         return(
-            <Card className="gridCard " style={{ width: '18rem' }} key={index}>
+            <Card className="productGridCard " style={{ width: '18rem' }} key={index}>
             <Card.Img className ="rounded mx-auto" variant="top" src={card.imageURL}/>
             <Card.Body>
                 <Card.Title>{card.title}</Card.Title>
@@ -38,7 +38,7 @@ function Grid(){
     }
 
     return (
-    <div className="grid">
+    <div className="productGrid">
         {cardInfo.map(renderGridCard)}
     </div>
     )
